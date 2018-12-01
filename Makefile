@@ -1,4 +1,4 @@
-IMAGE_NAME = abien/s2i-payara
+IMAGE_NAME = airhacks/s2i-payara
 
 .PHONY: build
 build:

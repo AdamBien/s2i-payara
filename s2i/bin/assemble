@@ -1,13 +1,13 @@
 #!/bin/bash -e
 #
-# S2I assemble script for the 'abien/s2i-payara' image.
+# S2I assemble script for the 'airhacks/s2i-payara' image.
 # The 'assemble' script builds your application source so that it is ready to run.
 #
 # For more information refer to the documentation:
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
-# If the 'abien/s2i-payara' assemble script is executed with the '-h' flag, print the usage.
+# If the 'airhacks/s2i-payara' assemble script is executed with the '-h' flag, print the usage.
 if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
 fi
@@ -24,3 +24,4 @@ cp -Rf /tmp/src/. ./
 
 echo "---> Building application from source..."
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
+cp *.war ${DEPLOYMENT_DIR}
