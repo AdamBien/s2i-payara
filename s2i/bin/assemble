@@ -3,7 +3,7 @@
 if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
 fi
-
+ASSEMBLY_START=`date +%s`
 SRC=/tmp/src
 PREBOOT_FILE=$SRC/asadmin-preboot
 printenv
@@ -28,7 +28,8 @@ if [ -f ${PREBOOT_FILE} ]; then
 		echo "### No ${PREBOOT_FILE} found -- running vanilla Payara"
 fi
 
-find ${INSTALL_DIR} -type d -user 1001 -exec chmod a+rwx {} \;
-find ${INSTALL_DIR} -type f  -exec chmod a+rw  {} \;
+find ${INSTALL_DIR} -type d -exec chmod a+rwx {} \;
+find ${INSTALL_DIR} -type f -user 1001 -exec chmod a+rw  {} \;
 
-date
+ASSEMBLY_END=`date +%s`
+echo "### assembled at $(date) in $((ASSEMBLY_END-ASSEMBLY_START)) seconds"
