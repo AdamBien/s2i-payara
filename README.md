@@ -19,7 +19,7 @@ dockerhub `airhacks/payara5-s2i:183`.
 2. `cd java/java8-s2i/` and `docker build -t airhacks/java-s2i . 
 3. `cd payara5-s2i` and `docker build -t airhacks/payara5-s2i:183`
 
-Now build the build itself:
+Now build the builder itself:
 
 1. `git clone https://github.com/AdamBien/s2i-payara`
 2. `docker build -t airhacks/s2i-payara .`
