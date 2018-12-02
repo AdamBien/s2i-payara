@@ -27,8 +27,8 @@ Now build the build itself:
 ## Installing on OpenShift
 
 1. Import the image into an image stream: `oc import-image s2i-payara --from=airhacks/s2i-payara:latest --confirm`
-2. Create an app from the imported image: `oc new-app s2i-payara:latest~/. --name=s2ipayaratst`
-3. Start a build: `oc start-build --from-dir . s2ipayaratst` from a directory with the following contents:
+2. Create an app from the imported image: `oc new-app s2i-payara:latest~/. --name=thinwar`
+3. Start a build: `oc start-build --from-dir . thinwar` from a directory with the following contents:
 
 | File                   | Required? | Description                                                  |
 |------------------------|-----------|--------------------------------------------------------------|
