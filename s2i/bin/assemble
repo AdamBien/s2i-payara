@@ -1,7 +1,5 @@
 #!/bin/bash -e
 #
-# S2I assemble script for the 'airhacks/s2i-payara' image.
-# If the 'airhacks/s2i-payara' assemble script is executed with the '-h' flag, print the usage.
 if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
 fi
@@ -23,9 +21,12 @@ if [ -f ${PREBOOT_FILE} ]; then
 		echo "Preboot found: "
 		cat ${PREBOOT_FILE}
 		echo "---------------"
-		echo "Configuring: ${DOMAIN_NAME}"
-		${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && \
+		echo "Configuring: ${DOMAIN_NME}"
+		${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && 
 		${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
 	else
 		echo "### No ${PREBOOT_FILE} found -- running vanilla Payara"
 fi
+
+find ${INSTALL_DIR} -type d  -exec chmod a+rwx {} \;
+find ${INSTALL_DIR} -type f  -exec chmod a+rw  {} \;
