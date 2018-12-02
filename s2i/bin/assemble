@@ -19,9 +19,13 @@ if [ -f $SRC/ext/*.jar ]; then
 		echo "### Not libraries found in /ext, skipping library installation"
 fi
 
-echo "Preboot found: "
-cat ${PREBOOT_FILE}
-echo "---------------"
-echo "Configuring: ${DOMAIN_NAME}"
-${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && \
-${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
+if [ -f ${PREBOOT_FILE} ]; then
+		echo "Preboot found: "
+		cat ${PREBOOT_FILE}
+		echo "---------------"
+		echo "Configuring: ${DOMAIN_NAME}"
+		${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && \
+		${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
+	else
+		echo "### No ${PREBOOT_FILE} found -- running vanilla Payara"
+fi
