@@ -13,7 +13,7 @@ echo "### Installing Thin WARs $(ls $SRC/*.war) into ${DEPLOYMENT_DIR}"
 cp -f ${SRC}/*.war ${DEPLOYMENT_DIR}
 
 if [ -f $SRC/ext/*.jar ]; then
-		echo "### Installing JDBC Drivers: $(ls $SRC/jdbc/*.jar)"
+		echo "### Installing JDBC Drivers: $(ls $SRC/ext/*.jar)"
 		cp -f ${SRC}/ext/*.jar ${INSTALL_DIR}/${PAYARA_ARCHIVE}/glassfish/domains/domain1/lib/ext
 	else
 		echo "### Not libraries found in /ext, skipping library installation"
