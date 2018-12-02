@@ -12,7 +12,7 @@ printenv
 echo "### Installing Thin WARs $(ls $SRC/*.war) into ${DEPLOYMENT_DIR}"
 cp -f ${SRC}/*.war ${DEPLOYMENT_DIR}
 echo "### Installing JDBC Drivers: $(ls $SRC/jdbc/*.jar)"
-cp -f ${SRC}/jdbc/*.jar ${INSTALL_DIR}/${PAYARA_ARCHIVE}/glassfish/domains/domain1/lib/ext
+cp -f ${SRC}/ext/*.jar ${INSTALL_DIR}/${PAYARA_ARCHIVE}/glassfish/domains/domain1/lib/ext
 
 echo "Preboot found: "
 cat ${PREBOOT_FILE}
