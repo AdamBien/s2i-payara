@@ -1,3 +1,4 @@
 #!/bin/bash -e
-echo $ENV
+echo "### Starting Payara 5"
+cp /opt/app-root/src/*.war ${DEPLOYMENT_DIR}
 exec start.sh
