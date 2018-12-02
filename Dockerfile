@@ -1,7 +1,7 @@
 FROM airhacks/payara5-s2i
 LABEL maintainer="Adam Bien, airhacks.com"
 
-ENV BUILDER_VERSION 1.0
+ENV BUILDER_VERSION 0.0.1
 
 LABEL io.k8s.description="Payara 5 S2I Image" \
       io.k8s.display-name="Payara 5 S2I Builder" \

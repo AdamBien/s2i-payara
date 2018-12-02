@@ -18,15 +18,17 @@ if [ -f $SRC/ext/*.jar ]; then
 fi
 
 if [ -f ${PREBOOT_FILE} ]; then
-		echo "Preboot found: "
+		echo "### Preboot found: "
 		cat ${PREBOOT_FILE}
 		echo "---------------"
-		echo "Configuring: ${DOMAIN_NME}"
+		echo "### Configuring: ${DOMAIN_NME}"
 		${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && 
 		${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
 	else
 		echo "### No ${PREBOOT_FILE} found -- running vanilla Payara"
 fi
 
-find ${INSTALL_DIR} -type d  -exec chmod a+rwx {} \;
+find ${INSTALL_DIR} -type d -user 1001 -exec chmod a+rwx {} \;
 find ${INSTALL_DIR} -type f  -exec chmod a+rw  {} \;
+
+date
