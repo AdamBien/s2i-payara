@@ -8,6 +8,7 @@ fi
 
 SRC=/tmp/src
 PREBOOT_FILE=$SRC/asadmin-preboot
+printenv
 echo "### Installing Thin WARs $(ls $SRC/*.war) into ${DEPLOYMENT_DIR}"
 cp -f ${SRC}/*.war ${DEPLOYMENT_DIR}
 echo "### Installing JDBC Drivers: $(ls $SRC/jdbc/*.jar)"
@@ -17,5 +18,5 @@ echo "Preboot found: "
 cat ${PREBOOT_FILE}
 echo "---------------"
 echo "Configuring: ${DOMAIN_NAME}"
-${PAYARA_HOME}/bin/asadmin start-domain --verbose --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && \
+${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && \
 ${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
