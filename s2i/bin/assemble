@@ -13,4 +13,4 @@ if [[ "$1" == "-h" ]]; then
 fi
 
 echo "### Installing application source"
-cp -Rf /tmp/src/. ./
+cp -Rf /tmp/src/*.war ${DEPLOYMENT_DIR}
