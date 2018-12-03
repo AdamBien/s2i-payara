@@ -21,7 +21,7 @@ The build is based on Payara5 s2i base image from [docklands](https://github.com
 dockerhub `airhacks/payara5-s2i:183`. 
 
 1. Clone `https://github.com/AdamBien/docklands.git`
-2. `cd java/java8-s2i/` and `docker build -t airhacks/java-s2i . 
+2. `cd java/java8-s2i/` and `docker build -t airhacks/java-s2i .` 
 3. `cd payara5-s2i` and `docker build -t airhacks/payara5-s2i:183`
 
 Now build the builder:
