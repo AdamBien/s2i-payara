@@ -36,4 +36,4 @@ Now build the builder:
 | ext/*.jar              | No        | JDBC drivers and external libraries                          |
 | asadmin-preboot        | Yes       | Payara configuration script                                  |
 | env-file               | Yes       | Build-time env-entries                                       |
-
+Also see a [ThinWAR example](https://github.com/AdamBien/s2i-payara/tree/master/sample) 
