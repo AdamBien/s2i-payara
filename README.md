@@ -1,12 +1,14 @@
 
 # Payara 5 s2i Builder for OpenShift
 
+The s2i-payara builder simplifies build, configuration and deployment of ThinWARs in cloud native environments like OpenShift and docker.
+
 ## Getting started
 
 
 
 
-#### Serverconfiguration
+#### Payara configuration
 
 Create a *asadmin-preboot* scripts to configure the application server: [https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html](https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html)
 
