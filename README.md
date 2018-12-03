@@ -5,8 +5,11 @@ The s2i-payara builder simplifies build, configuration and deployment of ThinWAR
 
 ## Getting started
 
+The s2i-payara inherits from the [payara5-s2i](https://github.com/AdamBien/docklands/tree/master/payara5-s2i) and indirectly [java8-s2i](https://github.com/AdamBien/docklands/tree/master/java/java8-s2i) docker images from [Docklands](https://github.com/AdamBien/docklands/). The base CentOS 7 operating system, Java and Payara 5 are inherited.
 
+Instead of building the universe, `s2i-payara` configures the Payara 5 server using stock [pre-boot scripts](https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html), copies 3rd-party libraries like e.g. JDBC-drivers and deploys a ThinWAR from the local folder. 
 
+Also checkout the [thin.war](https://github.com/AdamBien/s2i-payara/tree/master/sample) example.
 
 #### Payara configuration
 
