@@ -42,3 +42,7 @@ Now build the builder:
 | asadmin-preboot        | Yes       | Payara configuration script                                  |
 | env-file               | Yes       | Build-time env-entries                                       |
 Also see a [ThinWAR example](https://github.com/AdamBien/s2i-payara/tree/master/sample) 
+
+## s2i in action
+
+[![ThinWARs with Payara and OpenShift](https://i.ytimg.com/vi/_23CgD7bsUc/mqdefault.jpg)](https://www.youtube.com/embed/_23CgD7bsUc?rel=0)
