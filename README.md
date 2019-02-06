@@ -35,15 +35,14 @@ Now build the builder:
 2. Create an app from the imported image: `oc new-app s2i-payara:latest~/. --name=thinwar`
 3. Start a build: `oc start-build --from-dir . thinwar` from a directory with the following contents:
 
-
 | File                   | Required? | Description                                                  |
 |------------------------|-----------|--------------------------------------------------------------|
 | *.war                  | Yes       | The ThinWar / microservice                                   |
 | ext/*.jar              | No        | JDBC drivers and external libraries                          |
 | asadmin-preboot        | Yes       | Payara configuration script                                  |
 | env-file               | Yes       | Build-time env-entries                                       |
-Also see a [ThinWAR example](https://github.com/AdamBien/s2i-payara/tree/master/sample) 
 
+Also see a [ThinWAR example](https://github.com/AdamBien/s2i-payara/tree/master/sample) 
 
 ## s2i in action
 
