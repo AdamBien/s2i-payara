@@ -17,12 +17,12 @@ Create a *asadmin-preboot* scripts to configure the application server: [https:/
 
 ## Building the builder
 
-The build is based on Payara5 s2i base image from [docklands](https://github.com/AdamBien/docklands/tree/master/payara5-s2i), published to 
-dockerhub `airhacks/payara5-s2i:183`. 
+The build is based on Payara5 s2i base image from [docklands](https://github.com/AdamBien/docklands/tree/master/payara-s2i), published to 
+dockerhub `airhacks/payara-s2i:5.184`. 
 
 1. Clone `https://github.com/AdamBien/docklands.git`
 2. `cd java/java8-s2i/` and `docker build -t airhacks/java-s2i .` 
-3. `cd payara5-s2i` and `docker build -t airhacks/payara5-s2i:183`
+3. `cd payara5-s2i` and `docker build -t airhacks/payara-s2i:5.184`
 
 Now build the builder:
 
