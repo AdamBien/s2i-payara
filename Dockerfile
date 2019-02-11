@@ -1,4 +1,4 @@
-FROM airhacks/payara5-s2i
+FROM airhacks/payara-s2i
 LABEL maintainer="Adam Bien, airhacks.com"
 
 ENV BUILDER_VERSION 0.0.1
