@@ -22,7 +22,7 @@ dockerhub `airhacks/payara-s2i:5.184`.
 
 1. Clone `https://github.com/AdamBien/docklands.git`
 2. `cd java/java8-s2i/` and `docker build -t airhacks/java-s2i .` 
-3. `cd payara5-s2i` and `docker build -t airhacks/payara-s2i:5.184`
+3. `cd payara-s2i` and `docker build -t airhacks/payara-s2i:5.184`
 
 Now build the builder:
 

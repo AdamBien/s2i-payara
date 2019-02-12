@@ -6,27 +6,45 @@ fi
 ASSEMBLY_START=`date +%s`
 SRC=/tmp/src
 PREBOOT_FILE=$SRC/asadmin-preboot
+POSTBOOT_FILE=$SRC/asadmin-postboot
 printenv
+
 echo "### Installing Thin WARs $(ls $SRC/*.war) into ${DEPLOYMENT_DIR}"
 cp -f ${SRC}/*.war ${DEPLOYMENT_DIR}
 
-if [ -f $SRC/ext/*.jar ]; then
+if [ -f $SRC/ext/*.jar ]
+	then
 		echo "### Installing JDBC Drivers: $(ls $SRC/ext/*.jar)"
 		cp -f ${SRC}/ext/*.jar ${INSTALL_DIR}/${PAYARA_ARCHIVE}/glassfish/domains/domain1/lib/ext
 	else
-		echo "### Not libraries found in /ext, skipping library installation"
+		echo "### No libraries found in /ext, skipping library installation"
 fi
 
-if [ -f ${PREBOOT_FILE} ]; then
-		echo "### Preboot found: "
+if [ -f $PREBOOT_FILE ] 
+	then
+		echo "### preboot found: "
 		cat ${PREBOOT_FILE}
-		echo "---------------"
+		echo "\n---------------"
 		echo "### Configuring: ${DOMAIN_NME}"
 		${PAYARA_HOME}/bin/asadmin start-domain --prebootcommandfile ${PREBOOT_FILE} ${DOMAIN_NAME} && 
 		${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
 	else
-		echo "### No ${PREBOOT_FILE} found -- running vanilla Payara"
+		echo "### No ${PREBOOT_FILE} found"
 fi
+
+if [ -f $POSTBOOT_FILE ] 
+	then
+		echo "### postboot found: "
+		cat ${POSTBOOT_FILE}
+		echo "\n---------------"
+		echo "### Configuring: ${DOMAIN_NME}"
+		${PAYARA_HOME}/bin/asadmin start-domain --postbootcommandfile ${POSTBOOT_FILE} ${DOMAIN_NAME} && 
+		${PAYARA_HOME}/bin/asadmin stop-domain ${DOMAIN_NAME}
+
+	else
+		echo "### No ${POSTBOOT_FILE} found"
+fi
+
 
 find ${INSTALL_DIR} -type d -exec chmod a+rwx {} \;
 find ${INSTALL_DIR} -type f -user 1001 -exec chmod a+rw  {} \;
