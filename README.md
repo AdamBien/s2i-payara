@@ -13,7 +13,7 @@ Also checkout the [thin.war](https://github.com/AdamBien/s2i-payara/tree/master/
 
 #### Payara configuration
 
-Create a *asadmin-preboot* scripts to configure the application server: [https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html](https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html)
+Create a *asadmin-preboot* or *asadmin-postboot* scripts to configure the application server: [https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html](https://docs.payara.fish/documentation/payara-micro/asadmin/pre-and-post-boot-scripts.html)
 
 ## Building the builder
 
@@ -39,8 +39,9 @@ Now build the builder:
 |------------------------|-----------|--------------------------------------------------------------|
 | *.war                  | Yes       | The ThinWar / microservice                                   |
 | ext/*.jar              | No        | JDBC drivers and external libraries                          |
-| asadmin-preboot        | Yes       | Payara configuration script                                  |
-| env-file               | Yes       | Build-time env-entries                                       |
+| asadmin-preboot        | No        | Payara configuration preeboot script                         |
+| asadmin-postboot       | No        | Payara configuration postboot script                         |
+| env-file               | No        | Build-time env-entries                                       |
 
 Also see a [ThinWAR example](https://github.com/AdamBien/s2i-payara/tree/master/sample) 
 
