@@ -1,0 +1,3 @@
+delete-jvm-options "-Xmx512m"
+create-jvm-options "-Xms1024m"
+create-jvm-options "-Xmx1024m"
